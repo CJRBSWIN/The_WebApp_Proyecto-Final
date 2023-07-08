@@ -1,7 +1,7 @@
 const { sql } = require('slonik')
 
 
-const registerUser = ( user_id, name_user, username, email, dpdeparment_user, creation_date, user_role ) => sql.unsafe `
+const registerUser = ( user_id, name_user, username, email, deparment_user, creation_date, user_role ) => sql.unsafe `
 INSERT INTO users (
     user_Id, name_user, username, email, deparment_user, creation_date, user_role 
 ) VALUES (
@@ -20,10 +20,10 @@ INSERT INTO devices (
     device_Id, category_devices, devices_name, serial_number, creation_date, status_devices
 ) VALUES ( )
 `
-const selectDevices = (device_Id, category_devices, devices_name, serial_number, creation_date, status_devices) => sql.unsafe `
+const selectDevices = (name_user, username, devices_name, devices_id, assignment_date, status_devices) => sql.unsafe `
 
-    SELECT device_Id, category_devices, devices_name, serial_number, creation_date, status_devices
-    FROM devices
+    SELECT name_user, username, device_Id, devices_name, assignment_date, status_devices
+    FROM devices AND users
     WHERE
 `
 module.exports = {
